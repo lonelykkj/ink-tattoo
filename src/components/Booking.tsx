@@ -1,7 +1,8 @@
+import { useState } from 'react'
 import type { FormEvent } from 'react'
-import sessao from '@/assets/sessao.jpg'
+import sessao from '@/assets/sessao.webp'
 import { CONTACT, WHATSAPP } from '@/data/site'
-import { buildBookingMessage, whatsappUrl } from '@/lib/whatsapp'
+import { buildBookingMessage, CHAT_URL, whatsappUrl } from '@/lib/whatsapp'
 import type { BookingDetails } from '@/lib/whatsapp'
 
 const regions = ['Braço / antebraço', 'Perna', 'Costas', 'Peito', 'Mão / dedos', 'Outra']
@@ -10,15 +11,18 @@ const sizes = ['Até 5 cm', '5–10 cm', '10–20 cm', 'Maior que 20 cm']
 const label = 'flex flex-col gap-2 text-[14px] font-extrabold'
 const field = 'min-h-[52px] rounded-[14px] border-2 border-ink bg-paper text-[16px] font-medium'
 
-function onSubmit(e: FormEvent<HTMLFormElement>) {
-  e.preventDefault()
-  const form = e.currentTarget
-  const data = Object.fromEntries(new FormData(form)) as BookingDetails
-  window.open(whatsappUrl(buildBookingMessage(data)), '_blank', 'noopener')
-  form.reset()
-}
-
 export default function Booking() {
+  const [sent, setSent] = useState(false)
+
+  function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    const form = e.currentTarget
+    const data = Object.fromEntries(new FormData(form)) as BookingDetails
+    window.open(whatsappUrl(buildBookingMessage(data)), '_blank', 'noopener')
+    form.reset()
+    setSent(true)
+  }
+
   return (
     <section id="agenda" aria-labelledby="agenda-t" className="gutter pb-24">
       <div className="flex flex-wrap gap-12 rounded-[32px] border-2 border-ink bg-white p-[clamp(24px,4vw,56px)]">
@@ -43,12 +47,15 @@ export default function Booking() {
             <span>{CONTACT.address}</span>
             <span>{CONTACT.hours}</span>
             <span>
-              {CONTACT.email} · {WHATSAPP.display}
+              {CONTACT.email} ·{' '}
+              <a href={CHAT_URL} target="_blank" rel="noopener noreferrer" className="text-ink underline">
+                {WHATSAPP.display}
+              </a>
             </span>
           </div>
         </div>
 
-        <form onSubmit={onSubmit} className="grid min-w-0 flex-[1.4_1_460px] grid-cols-2 gap-[18px]">
+        <form onSubmit={onSubmit} className="grid min-w-0 flex-[1.4_1_460px] grid-cols-1 gap-[18px] sm:grid-cols-2">
           <label className={label}>
             Nome
             <input type="text" name="nome" required autoComplete="name" placeholder="Ex.: Marina Costa" className={`${field} px-4`} />
@@ -92,6 +99,11 @@ export default function Booking() {
               <span className="inline-block transition-transform duration-500 group-hover:scale-130 group-hover:rotate-180">✱</span>
             </span>
           </button>
+          {sent && (
+            <p role="status" className="col-span-full m-0 rounded-[14px] border-2 border-ink bg-accent px-4 py-3 text-[15px] font-bold text-ink">
+              Seu pedido abriu no WhatsApp. É só tocar em enviar por lá, e eu respondo em até 2 dias.
+            </p>
+          )}
         </form>
       </div>
     </section>

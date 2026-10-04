@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { whatsappUrl } from '@/lib/whatsapp'
 
 const accent = 'var(--color-accent)'
 
@@ -133,6 +134,16 @@ export default function Flash() {
               <span className="font-extrabold">{f.name}</span>
               <span className={`font-mono text-[13px] ${f.reserved ? 'line-through' : ''}`}>{f.price}</span>
             </div>
+            {!f.reserved && (
+              <a
+                href={whatsappUrl(`Quero reservar o flash ${f.name} (${f.price})`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border-2 border-ink bg-accent py-2 text-center text-[14px] font-extrabold text-ink no-underline transition-colors hover:bg-ink hover:text-paper"
+              >
+                Quero esse ✱
+              </a>
+            )}
           </div>
         ))}
       </div>

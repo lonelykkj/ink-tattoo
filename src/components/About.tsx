@@ -1,4 +1,4 @@
-import estudio from '@/assets/estudio.jpg'
+import estudio from '@/assets/estudio.webp'
 import { ARTIST } from '@/data/site'
 
 const chips = ['8 anos de traço', '+1.200 tatuagens', 'Estúdio privado', 'Material descartável']
