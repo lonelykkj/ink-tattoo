@@ -1,32 +1,34 @@
-# React + TypeScript + Vite
+# Ink Tattoo
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+> Projeto criado para complementar o meu portfólio pessoal: **[portifolio-heitor.vercel.app](https://portifolio-heitor.vercel.app/)**
+>
+> O estúdio é fictício — endereço, telefone e e-mail são só para demonstração.
 
-Currently, two official plugins are available:
+Site-portfólio de um tatuador em Pinheiros, São Paulo, focado em fineline, blackwork, old school e flash autoral.
+A ideia é mostrar os trabalhos, vender os flashes disponíveis e facilitar o agendamento.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+![Hero do Ink Tattoo](docs/hero.png)
 
-## React Compiler
+## O que tem no site
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Trabalhos selecionados** — galeria com filtro por estilo (fineline, blackwork, old school, flash).
+- **Flash autoral** — desenhos prontos com preço, marcando os que já foram reservados.
+- **Sobre o artista** — apresentação do tatuador e do estúdio.
+- **Agenda** — formulário com região do corpo, tamanho e ideia, que monta a mensagem e abre o WhatsApp do estúdio.
+- **FAQ** — dúvidas comuns sobre orçamento, cuidados e sessão.
 
-## Expanding the Oxlint configuration
+![Trabalhos selecionados](docs/trabalhos.png)
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+![Formulário de agendamento](docs/agenda.png)
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+<p align="center">
+  <img src="docs/mobile.png" alt="Versão mobile" width="320" />
+</p>
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Tecnologias
+
+React 19, TypeScript, Tailwind CSS v4 e Vite.
+
+## Acesse o site
+
+**[ink-tattoo-one.vercel.app](https://ink-tattoo-one.vercel.app/)**
