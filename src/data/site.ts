@@ -5,6 +5,7 @@ export const CONTACT = {
   hours: 'Ter a Sáb · 11h às 19h',
   email: 'contato@heitorcarvalho.ink',
   instagram: '@HEITORCARVALHO.INK',
+  instagramUrl: 'https://instagram.com/heitorcarvalho.ink',
 }
 
 /**

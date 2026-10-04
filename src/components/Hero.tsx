@@ -36,7 +36,7 @@ export default function Hero() {
       <div className="relative flex flex-1 flex-wrap items-center gap-10">
         {/* left: headline */}
         <div className="flex min-w-0 flex-[1_1_560px] flex-col gap-11">
-          <h1 className="relative text-[clamp(54px,7.4vw,116px)] leading-[.9]">
+          <h1 className="relative text-[clamp(32px,10vw,54px)] leading-[.9] sm:text-[clamp(54px,7.4vw,116px)]">
             <span className="block overflow-hidden">
               <span className="inline-flex animate-rise items-center gap-[.08em] [animation-delay:.05s]">
                 2026
@@ -95,7 +95,7 @@ export default function Hero() {
             </span>
 
             {/* vertical tag + barcode */}
-            <span aria-hidden="true" className="absolute bottom-[-.02em] left-[6.15em] flex flex-col items-center gap-1">
+            <span aria-hidden="true" className="absolute bottom-[-.02em] left-[6.15em] hidden flex-col sm:flex items-center gap-1">
               <span className="border-[1.5px] border-ink bg-paper px-px py-1 font-mono text-[10px] font-bold tracking-[.12em] [writing-mode:vertical-rl]">
                 AUTORAL
               </span>

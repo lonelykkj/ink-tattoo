@@ -2,6 +2,8 @@ import { ARTIST, WHATSAPP } from '@/data/site'
 
 export const whatsappUrl = (text: string) => `https://wa.me/${WHATSAPP.number}?text=${encodeURIComponent(text)}`
 
+export const CHAT_URL = whatsappUrl('Olá! Vim pelo site e quero conversar sobre uma tatuagem.')
+
 export type BookingDetails = {
   nome: string
   contato: string
